@@ -15,5 +15,7 @@ public class RestException extends RuntimeException {
 		return httpStatus;
 	}
 
-	public String getHttpStatusCode() { return Integer.toString(this.httpStatus.value()); }
+	public String getHttpStatusCode() {
+		return Integer.toString(this.httpStatus.value());
+	}
 }

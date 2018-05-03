@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import starwars.exceptions.RestException;
-import starwars.mapper.StarWarsMapper;
 import starwars.objects.Characteristics;
 
 @RestController
