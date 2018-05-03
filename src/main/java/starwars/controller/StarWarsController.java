@@ -12,7 +12,7 @@ import starwars.objects.Characteristics;
 public class StarWarsController {
 
 	private static final String DARTH_VADER = "darthvader";
-	private static final String LEAH = "leia";
+	private static final String LEIA = "leia";
 	private static final String LUKE = "luke";
 
 	@RequestMapping(value = "/character/{name}")
@@ -33,7 +33,7 @@ public class StarWarsController {
 				characteristics.setHeight("6 ft 2 in");
 				characteristics.setWeight("196 lbs");
 				return characteristics;
-			case LEAH:
+			case LEIA:
 				characteristics.setName("Princess Leia");
 				characteristics.setHeight("5 ft 1 in");
 				characteristics.setWeight("126 lbs");
