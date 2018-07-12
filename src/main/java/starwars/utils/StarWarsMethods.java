@@ -14,19 +14,19 @@ public class StarWarsMethods {
 
 		switch (name) {
 			case ANAKIN:
-				details.setName("Anakin Skywalker, aka Darth Vader");
-				details.setHeight("6 ft 2 in");
-				details.setWeight("196 lbs");
+				details.setName("Anakin Skywalker, aka Darth Vader	");
+				details.setHeight("6 ft 2 in						");
+				details.setWeight("196 lbs							");
 				return details;
 			case LEIA:
-				details.setName("Princess Leia");
-				details.setHeight("5 ft 1 in");
-				details.setWeight("126 lbs");
+				details.setName("Princess Leia						");
+				details.setHeight("5 ft 1 in						");
+				details.setWeight("126 lbs							");
 				return details;
 			case LUKE:
-				details.setName("Luke Skywalker");
-				details.setHeight("5 ft 6 in");
-				details.setWeight("161 lbs");
+				details.setName("Luke Skywalker						");
+				details.setHeight("5 ft 6 in						");
+				details.setWeight("161 lbs							");
 				return details;
 			default:
 				throw new RestException(HttpStatus.BAD_REQUEST, "Unknown character requested");

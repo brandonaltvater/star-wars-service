@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import starwars.objects.Details;
 import starwars.utils.StarWarsMethods;
+import starwars.utils.trim.annotation.TrimWhitespace;
 
 @RestController
 @RequestMapping("/starwars")
@@ -16,8 +17,9 @@ import starwars.utils.StarWarsMethods;
 public class StarWarsController {
 
 	@RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE,
-					value = "/character/{name}")
+			value = "/character/{name}")
 	@ResponseStatus(HttpStatus.OK)
+	@TrimWhitespace
 	public Details getCharacteristics(@PathVariable(value = "name") String name) {
 
 		Details details;
