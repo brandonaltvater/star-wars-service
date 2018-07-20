@@ -4,7 +4,7 @@ import org.springframework.http.HttpStatus;
 import starwars.exceptions.RestException;
 import starwars.objects.Details;
 
-import static starwars.utils.StarWarsConstants.*;
+import static starwars.data.Fields.*;
 
 public class StarWarsMethods {
 

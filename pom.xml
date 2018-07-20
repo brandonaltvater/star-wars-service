@@ -28,6 +28,10 @@
 			<version>4.3.14.RELEASE</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
 	</dependencies>
 
 	<properties>
@@ -54,7 +58,7 @@
 									<format property="buildTime" pattern="yyyy-MM-dd HH:mm:ss"/>
 								</tstamp>
 								<echo file="${basedir}/src/main/resources/application.properties"
-									  message="endpoints.enabled=false&#xD;endpoints.info.enabled=true&#xD;endpoints.sensitive=true&#xD;endpoints.info.sensitive=false&#xD;endpoints.info.path=/api/v1/@infoActuatorId@/info&#xD;info.service.name=@project.artifactId@&#xD;info.service.version=@project.version@&#xD;info.service.built=${buildTime}"/>
+									  message="management.endpoints.enabled-by-default=false&#xD;management.endpoint.info.enabled=true&#xD;management.endpoints.web.base-path=/&#xD;management.endpoints.web.path-mapping.info=@infoActuatorId@/info&#xD;info.service.name=@artifactId@&#xD;info.service.version=@version@&#xD;info.service.built=${buildTime}"/>
 							</tasks>
 						</configuration>
 						<goals>
