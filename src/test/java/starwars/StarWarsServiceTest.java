@@ -19,7 +19,7 @@ public class StarWarsServiceTest {
 
 	@Test
 	public void test_getCharacteristics() {
-		Assert.assertTrue(starWarsController.getCharacteristics("luke").getName().equals("Luke Skywalker"));
+		Assert.assertEquals("Luke Skywalker", starWarsController.getCharacteristics("luke").getName().trim());
 	}
 
 	// TODO: Finish creating tests

@@ -31,6 +31,7 @@
 	</dependencies>
 
 	<properties>
+		<infoActuatorId>starwars</infoActuatorId>
 		<java.version>1.8</java.version>
 	</properties>
 
@@ -39,6 +40,28 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.8</version>
+				<executions>
+					<execution>
+						<phase>generate-resources</phase>
+						<configuration>
+							<tasks>
+								<tstamp>
+									<format property="buildTime" pattern="yyyy-MM-dd HH:mm:ss"/>
+								</tstamp>
+								<echo file="${basedir}/src/main/resources/application.properties"
+									  message="endpoints.info.path=/api/v1/@infoActuatorId@/info&#xD;info.service.name=@project.artifactId@&#xD;info.service.version=@project.version@&#xD;info.service.built=${buildTime}"/>
+							</tasks>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

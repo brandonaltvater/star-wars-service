@@ -3,10 +3,7 @@ package starwars.controllers;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import starwars.objects.Details;
 import starwars.utils.StarWarsMethods;
 import starwars.utils.trim.annotation.TrimWhitespace;
@@ -16,8 +13,7 @@ import starwars.utils.trim.annotation.TrimWhitespace;
 @Validated
 public class StarWarsController {
 
-	@RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE,
-			value = "/character/{name}")
+	@GetMapping(value = "/character/{name}", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.OK)
 	@TrimWhitespace
 	public Details getCharacteristics(@PathVariable(value = "name") String name) {
