@@ -54,7 +54,7 @@
 									<format property="buildTime" pattern="yyyy-MM-dd HH:mm:ss"/>
 								</tstamp>
 								<echo file="${basedir}/src/main/resources/application.properties"
-									  message="endpoints.info.path=/api/v1/@infoActuatorId@/info&#xD;info.service.name=@project.artifactId@&#xD;info.service.version=@project.version@&#xD;info.service.built=${buildTime}"/>
+									  message="endpoints.enabled=false&#xD;endpoints.info.enabled=true&#xD;endpoints.sensitive=true&#xD;endpoints.info.sensitive=false&#xD;endpoints.info.path=/api/v1/@infoActuatorId@/info&#xD;info.service.name=@project.artifactId@&#xD;info.service.version=@project.version@&#xD;info.service.built=${buildTime}"/>
 							</tasks>
 						</configuration>
 						<goals>
