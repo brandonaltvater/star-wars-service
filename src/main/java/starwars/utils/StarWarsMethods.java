@@ -2,32 +2,32 @@ package starwars.utils;
 
 import org.springframework.http.HttpStatus;
 import starwars.exceptions.RestException;
-import starwars.objects.Details;
+import starwars.objects.CharacterDetails;
 
 import static starwars.data.Fields.*;
 
 public class StarWarsMethods {
 
-	public Details getCharacterDetails(String name) {
+	public CharacterDetails getCharacterDetails(String characterName) {
 
-		Details details = new Details();
+		CharacterDetails characterDetails = new CharacterDetails();
 
-		switch (name) {
+		switch (characterName) {
 			case ANAKIN:
-				details.setName("Anakin Skywalker, aka Darth Vader	");
-				details.setHeight("6 ft 2 in						");
-				details.setWeight("196 lbs							");
-				return details;
+				characterDetails.setName("Anakin Skywalker, aka Darth Vader	");
+				characterDetails.setHeight("6 ft 2 in						");
+				characterDetails.setWeight("196 lbs							");
+				return characterDetails;
 			case LEIA:
-				details.setName("Princess Leia						");
-				details.setHeight("5 ft 1 in						");
-				details.setWeight("126 lbs							");
-				return details;
+				characterDetails.setName("Princess Leia						");
+				characterDetails.setHeight("5 ft 1 in						");
+				characterDetails.setWeight("126 lbs							");
+				return characterDetails;
 			case LUKE:
-				details.setName("Luke Skywalker						");
-				details.setHeight("5 ft 6 in						");
-				details.setWeight("161 lbs							");
-				return details;
+				characterDetails.setName("Luke Skywalker					");
+				characterDetails.setHeight("5 ft 6 in						");
+				characterDetails.setWeight("161 lbs							");
+				return characterDetails;
 			default:
 				throw new RestException(HttpStatus.BAD_REQUEST, "Unknown character requested");
 		}

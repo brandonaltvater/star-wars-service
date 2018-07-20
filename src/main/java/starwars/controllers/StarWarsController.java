@@ -4,7 +4,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import starwars.objects.Details;
+import starwars.mappers.StarWarsMapper;
+import starwars.objects.CharacterDetails;
 import starwars.utils.StarWarsMethods;
 import starwars.utils.trim.annotation.TrimWhitespace;
 
@@ -13,16 +14,32 @@ import starwars.utils.trim.annotation.TrimWhitespace;
 @Validated
 public class StarWarsController {
 
-	@GetMapping(value = "/character/{name}", produces = MediaType.APPLICATION_JSON_VALUE)
+	private final StarWarsMapper starWarsMapper;
+
+	public StarWarsController(StarWarsMapper starWarsMapper) {
+		this.starWarsMapper = starWarsMapper;
+	}
+
+	@GetMapping(value = "/character/{characterName}", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.OK)
 	@TrimWhitespace
-	public Details getCharacteristics(@PathVariable(value = "name") String name) {
+	public CharacterDetails getCharacterDetails(@PathVariable(value = "characterName") String characterName) {
 
-		Details details;
+		CharacterDetails characterDetails;
 		StarWarsMethods starWarsMethods = new StarWarsMethods();
 
-		details = starWarsMethods.getCharacterDetails(name);
+		characterDetails = starWarsMethods.getCharacterDetails(characterName);
 
-		return details;
+		return characterDetails;
+	}
+
+	@PutMapping(value = "/planet/{planetName}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseStatus(HttpStatus.OK)
+	public void putPlanetDetails(@PathVariable(value = "planetName") String planetName,
+								 @RequestBody() String postingOperatorId) {
+
+
+
+		starWarsMapper.insertPlanetDetails(planetName, postingOperatorId);
 	}
 }

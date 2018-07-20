@@ -16,7 +16,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import starwars.controllers.StarWarsController;
 import starwars.exceptions.RestException;
-import starwars.objects.Details;
+import starwars.objects.CharacterDetails;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -43,22 +43,22 @@ public class StarWarsServiceTest {
 	@Test
 	public void controller_getCharacteristics_notNull_anakin() {
 
-		Details details = starWarsController.getCharacteristics("anakin");
-		Assert.assertNotNull(details);
+		CharacterDetails characterDetails = starWarsController.getCharacterDetails("anakin");
+		Assert.assertNotNull(characterDetails);
 	}
 
 	@Test
 	public void controller_getCharacteristics_notNull_leia() {
 
-		Details details = starWarsController.getCharacteristics("leia");
-		Assert.assertNotNull(details);
+		CharacterDetails characterDetails = starWarsController.getCharacterDetails("leia");
+		Assert.assertNotNull(characterDetails);
 	}
 
 	@Test
 	public void controller_getCharacteristics_notNull_luke() {
 
-		Details details = starWarsController.getCharacteristics("luke");
-		Assert.assertNotNull(details);
+		CharacterDetails characterDetails = starWarsController.getCharacterDetails("luke");
+		Assert.assertNotNull(characterDetails);
 	}
 
 	@Test/*(expected = RestException.class)*/
@@ -66,7 +66,7 @@ public class StarWarsServiceTest {
 
 		expectedException.expect(RestException.class);
 		expectedException.expectMessage("Unknown character requested");
-		starWarsController.getCharacteristics("null");
+		starWarsController.getCharacterDetails("null");
 	}
 
 	@Test

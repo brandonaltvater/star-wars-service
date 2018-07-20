@@ -1,6 +1,6 @@
 package starwars.objects;
 
-public class Details {
+public class CharacterDetails {
 
 	private String name;
 	private String height;
