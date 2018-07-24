@@ -38,8 +38,6 @@ public class StarWarsController {
 	public void putPlanetDetails(@PathVariable(value = "planetName") String planetName,
 								 @RequestBody() String postingOperatorId) {
 
-
-
 		starWarsMapper.insertPlanetDetails(planetName, postingOperatorId);
 	}
 }
